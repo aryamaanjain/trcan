@@ -4,7 +4,7 @@ Terrain RCAN is a state-of-the-art terrain super-resolution model proposed in th
 
 
 
-![](.\figures\terrain_sr.png)
+![](./figures/terrain_sr.png)
 
 Terrain enhancement where (a) is enhanced to (b).
 
@@ -12,7 +12,7 @@ Terrain enhancement where (a) is enhanced to (b).
 
 
 
-![](.\figures\sr_loss.png)
+![](./figures/sr_loss.png)
 
 Effect of stride on the RMSE.
 
@@ -20,7 +20,7 @@ Effect of stride on the RMSE.
 
 
 
-![](C:\data\iiit\research\thesis\trcan\figures\trcan.png)
+![](./figures/trcan.png)
 
 Architectural diagram of the proposed terrain super-resolution model TRCAN.
 
