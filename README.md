@@ -1,43 +1,45 @@
 # TRCAN
 
-Terrain RCAN is a state-of-the-art terrain super-resolution model proposed in the paper *"Adaptive & Multi-Resolution Procedural Infinite Terrain Generation with Diffusion Models and Perlin Noise"*.
+TRCAN (Terrain Residual Channel Attention Networks) is a state-of-the-art terrain super-resolution model proposed in the paper "Adaptive & Multi-Resolution Procedural Infinite Terrain Generation with Diffusion Models and Perlin Noise".
 
 
-
-![](./figures/terrain_sr.png)
-
-Terrain enhancement where (a) is enhanced to (b).
-
-
+<p align="center">
+<img src=".\figures\terrain_sr.png" width="500" /><br/>
+Terrain enhancement where (a) is enhanced to (b).  
+</p>
 
 
+It was modified and tuned for terrain super-resolution based on the natural image super-resolution model RCAN. The code structure is kept simple, with three main files for data preparation, training, and testing: prepare_tiles.py, train.py, and test.py.
 
-![](./figures/sr_loss.png)
+## Data Preparation
+To use the `prepare_tiles.py` file, you will first need to download the dataset from https://gitrepos.virvig.eu/oargudo/fcn-terrains. This file is used to break a terrain tile into patches, and the tile size is set to 256 by default in our implementation. Futher details are given in https://gitrepos.virvig.eu/oargudo/fcn-terrains.
 
-Effect of stride on the RMSE.
+## Training
+To train the model, use the `train.py` file. Before running the file, update the paths where indicated in the code. The model weights will be saved after training is complete.
 
+Compared to RCAN, minor modifications were made to the model to adapt it to terrain data. These modifications include changing the model head to accommodate the low-resolution/high-resolution correspondence in terrain tile preparation, and fine-tuning the model parameters.
 
-
-
-
-![](./figures/trcan.png)
-
+<p align="center">
+<img src="./figures/trcan.png" width="700" /><br/>
 Architectural diagram of the proposed terrain super-resolution model TRCAN.
+</p>
+
+## Testing
+To test the model on the test set, use the `test.py` file. Before running the file, update the paths where indicated in the code. The post-processing technique proposed and used in this file may take some time to complete. If you observe diminishing returns in PSNR gains vs time taken to post-process, you can change the limit in the code.
+
+<p align="center">
+<img src="./figures/sr_loss.png" width="400" /><br/>
+Effect of stride on the RMSE.
+</p>
+
+## Trained Model Weights
+The trained model weights are saved in the file `weights.pth`.
+
+## Dependencies
+This project uses standard libraries including PyTorch, Numpy, and PIL.
 
 
-
-
-
-It was modified and tuned for terrain super-resolution from the natural image super-resolution model RCAN. The code structure is kept simple, with single files for data-preparation (prepare_tiles.py), training (train.py) and testing (test.py).
-
-* `prepare_tile.py`: This file is used to break a terrain tile into patches. Refer https://gitrepos.virvig.eu/oargudo/fcn-terrains for more details and to download the dataset. The size of the tiles were kept 256.
-* `train.py`: Used to train the model. Change the paths where indicated in the code and run. Model weights will be saved. Compared to RCAN, you would find minor modifications like the change in head of the model to suit terrain (since it is difficult to get LR-HR correspondence in terrain which preparing tiles). Furthermore, the parameters of the model are tuned.
-* `test.py`: Used for testing the model on the test set. Change the paths where indicated in the code and run. The post-processing technique proposed and used in this file might take time, you can change the limit in the code if you observe diminishing returns in PSNR gains.
-* weights.pth: The trained model weights.
-
-Standard libraries were used including PyTorch, Numpy, PIL.
-
-
+## Links
 
 Project page link: https://3dcomputervision.github.io/publications/inf_terrain_generation.html
 
@@ -45,7 +47,7 @@ Video link: https://www.youtube.com/watch?v=6Uz6m4piXYI
 
 Paper link: https://3dcomputervision.github.io/assets/pdfs/inf_terrain_generation.pdf
 
-BibTex:
+## BibTeX
 
 ```
 @inbook{10.1145/3571600.3571657
@@ -61,6 +63,3 @@ BibTex:
   numpages = {9}
 }
 ```
-
-
-
