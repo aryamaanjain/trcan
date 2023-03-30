@@ -32,6 +32,18 @@ To test the model on the test set, use the `test.py` file. Before running the fi
 Effect of stride on the RMSE.
 </p>
 
+
+
+Comparison of Bicubic Upsampling, FCND, DSRFB/DSRFO and our proposed TRCAN/TRCAN+ using RMSE (in meter) / PSNR (in dB) for 8x terrain super-resolution. More details in paper.
+| Region      | Bicubic    | FCND         | DSRFB        | DSRFO        | TRCAN            | TRCAN+           |
+| ----------- | ---------- | ------------ | ------------ | ------------ | ---------------- | ---------------- |
+| Bassiero    | 1.406/60.5 | 1.146/62.261 | 1.091/62.687 | 1.083/62.752 | **1.086/62.728** | **1.077/62.807** |
+| Forcanada   | 1.632/58.6 | 1.326/60.383 | 1.270/60.761 | 1.259/60.837 | **1.260/60.828** | **1.248/60.909** |
+| Durrenstein | 1.445/59.5 | 0.957/63.076 | 0.884/63.766 | 0.868/63.924 | **0.869/63.915** | **0.847/64.138** |
+| Monte Magro | 0.917/67.2 | 0.632/70.461 | 0.589/71.081 | 0.581/71.196 | **0.584/71.144** | **0.574/71.293** |
+
+
+
 ## Trained Model Weights
 The trained model weights are saved in the file `weights.pth`.
 
