@@ -59,6 +59,8 @@ Video link: https://www.youtube.com/watch?v=6Uz6m4piXYI
 
 Paper link: https://3dcomputervision.github.io/assets/pdfs/inf_terrain_generation.pdf
 
+Perlin Noise implementation: https://github.com/aryamaanjain/perlin_noise
+
 ## BibTeX
 
 ```
